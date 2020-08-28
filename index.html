@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./hash/hash.css">
+    <title>js-router</title>
+</head>
+<body>
+    <div>
+        <h3>Hash 模式路由跳转</h3>
+        <ul class="tab">
+            <!-- 定义路由 -->
+            <li><a href="#/home"> &lt;a&gt; 标签点击跳转 home</a></li>
+            <li><a href="#/about"> &lt;a&gt; 标签点击跳转 about</a></li>
+        </ul>
+
+        <!-- JS 动态改变 hash 值，实现跳转 -->
+        <div id="handleToCartHash" class="btn"> JS 动态点击跳转 cart</div>
+
+        <!-- 渲染路由对应的 UI -->
+        <div id="routeViewHash" class="routeView"></div>
+    </div>
+    
+    <div >
+        <h3>History 模式路由跳转</h3>
+        <ul class="tab">
+            <!-- 定义路由 -->
+            <li><a href="/home">点击跳转 /home</a></li>
+            <li><a href="/about">点击跳转 /about</a></li>
+        </ul>
+
+        <!-- JS 动态改变 URL 值，实现跳转 -->
+        <div id="handlePush" class="btn"> JS 动态 pushState 跳转 list</div>
+
+        <div id="handleReplace" class="btn"> JS 动态 replaceState 跳转 item</div>
+
+        <!-- 渲染路由对应的 UI -->
+        <div id="routeViewHistory" class="routeView"></div>
+    </div>
+    
+    <script type="text/javascript" src="./hash/hash.js"></script>
+    <script type="text/javascript" src="./history/history.js"></script>
+
+    <script>
+        // window.onload = function () {
+        //     let routerview = document.getElementById('routeViewHash')
+        //     // HashRouter 实例化
+        //     let hashRouter = new HashRouter(routerview)
+        //     hashRouter.init()
+        //     // JS 动态改变 hash 值
+        //     var handleToCartHash = document.getElementById('handleToCartHash');
+        //     handleToCartHash.addEventListener('click', function(){
+        //         hashRouter.push('/cart')
+        //     }, false); 
+        // }
+
+        window.onload = function () {
+            let routerview = document.getElementById('routeViewHistory')
+            // HistoryRouter 实例化
+            let historyRouter = new HistoryRouter(routerview)
+            historyRouter.init()
+            // JS 动态改变 URL 值
+            document.getElementById('handlePush').addEventListener('click', function(){
+                historyRouter.push('/list')
+            }, false); 
+            document.getElementById('handleReplace').addEventListener('click', function(){
+                historyRouter.replace('/item')
+            }, false); 
+        }
+
+    </script>
+</body>
+</html>

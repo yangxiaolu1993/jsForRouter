@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./hash/hash.css">
+    <title>cart</title>
+</head>
+<body>
+    <div>
+        <h3>cart html</h3>
+    </div>
+
+    <script>
+        window.addEventListener('popstate', ()=>{
+            console.log('popstate cart 跳转111')
+            // that.routerView.innerHTML = '当前路由：' + location.pathname
+        })
+        window.addEventListener('load', ()=>{
+            console.log('初始化 cart')
+            console.log(window.history.length)
+            // that.routerView.innerHTML = '当前路由：' + location.pathname
+        })
+        
+    </script>
+</body>
+</html>

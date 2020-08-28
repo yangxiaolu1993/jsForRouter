@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./hash/hash.css">
+    <title>classify</title>
+</head>
+<body>
+    <div>
+        <h3>classify html</h3>
+    </div>
+    <script>
+        window.addEventListener('popstate', ()=>{
+            console.log('popstate classify 跳转')
+            
+            // that.routerView.innerHTML = '当前路由：' + location.pathname
+        })
+        window.addEventListener('load', ()=>{
+            console.log('popstate classify 跳转')
+            console.log(window.history.length)
+            // that.routerView.innerHTML = '当前路由：' + location.pathname
+        })
+        
+    </script>
+</body>
+</html>

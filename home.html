@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./hash/hash.css">
+    <title>home</title>
+</head>
+<body>
+    <div>
+        <h3>home html</h3>
+        <div id="btn" class="btn">跳转至 cart.html</div>
+        <!-- <div id="btn1" class="btn">跳转至 classify.html</div> -->
+
+        <div style="padding:20px">
+            <a href="#classify.html"> a 标签跳转至 classify.html</a>
+        </br>
+            <!-- <a href="cart.html">a 标签跳转至 cart.html</a> -->
+        </div>
+        
+    </div>
+
+    <script>
+        document.getElementById('btn').addEventListener('click', function(){
+            history.pushState({ tag: "cart" }, "", "#cart.html")
+            // window.location = '#classify.html'
+        }, false); 
+        // document.getElementById('btn1').addEventListener('click', function(){
+        //     history.pushState({ tag: "classify" }, "", "classify.html")
+        // }, false); 
+
+        window.addEventListener('load', ()=>{
+            console.log('初始化 home')
+            window.a = 'hello'
+            if (window.history.state == 'only') {
+                history.pushState({ tag: "cart" }, "", "cart.html")
+            }
+
+            // history.pushState({ tag: "cart" }, "", "cart.html")
+            // that.routerView.innerHTML = '当前路由：' + location.pathname
+        })
+        
+        window.addEventListener('popstate', ()=>{
+            console.log('popstate home 跳转')
+            // that.routerView.innerHTML = '当前路由：' + location.pathname
+        })
+        window.addEventListener('hashchange', ()=>{
+            console.log('hashchange home 跳转')
+            // that.routerView.innerHTML = '当前路由：' + location.pathname
+        })
+
+        
+    </script>
+</body>
+</html>
