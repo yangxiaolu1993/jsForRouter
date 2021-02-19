@@ -8,7 +8,7 @@
     <title>js-router</title>
 </head>
 <body>
-    <div>
+    <div id="hash">
         <h3>Hash 模式路由跳转</h3>
         <ul class="tab">
             <!-- 定义路由 -->
@@ -23,7 +23,7 @@
         <div id="routeViewHash" class="routeView"></div>
     </div>
     
-    <div >
+    <div id="history">
         <h3>History 模式路由跳转</h3>
         <ul class="tab">
             <!-- 定义路由 -->
@@ -44,19 +44,54 @@
     <script type="text/javascript" src="./history/history.js"></script>
 
     <script>
-        // window.onload = function () {
-        //     let routerview = document.getElementById('routeViewHash')
-        //     // HashRouter 实例化
-        //     let hashRouter = new HashRouter(routerview)
-        //     hashRouter.init()
-        //     // JS 动态改变 hash 值
-        //     var handleToCartHash = document.getElementById('handleToCartHash');
-        //     handleToCartHash.addEventListener('click', function(){
-        //         hashRouter.push('/cart')
-        //     }, false); 
-        // }
-
+        /** 
+         * hash 模式与 history 模式，这两种模式的路由不能同时运行
+        */
         window.onload = function () {
+
+            /**
+             * 设置当前路由模式
+             * 参数： hash、history
+             */
+            let mode = 'hash'
+
+            switch (mode) {
+                case 'hash':
+                    initHashRouter()
+                    break;
+                case 'history':
+                    initHistoryRouter()
+                    break;
+                default:
+                    initHistoryRouter()
+            }
+            
+        }
+        /**
+         * hash 模式路由
+         */
+        function initHashRouter(){
+
+            document.getElementById('history').style.display = 'none'
+
+            let routerview = document.getElementById('routeViewHash')
+            // HashRouter 实例化
+            let hashRouter = new HashRouter(routerview)
+            hashRouter.init()
+            // JS 动态改变 hash 值
+            var handleToCartHash = document.getElementById('handleToCartHash');
+            handleToCartHash.addEventListener('click', function(){
+                hashRouter.push('/cart')
+            }, false); 
+        }
+
+        /**
+         * history 模式路由
+         */
+        function initHistoryRouter(){
+
+            document.getElementById('hash').style.display = 'none'
+
             let routerview = document.getElementById('routeViewHistory')
             // HistoryRouter 实例化
             let historyRouter = new HistoryRouter(routerview)
@@ -69,6 +104,7 @@
                 historyRouter.replace('/item')
             }, false); 
         }
+        
 
     </script>
 </body>

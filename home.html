@@ -14,7 +14,7 @@
         <!-- <div id="btn1" class="btn">跳转至 classify.html</div> -->
 
         <div style="padding:20px">
-            <a href="#classify.html"> a 标签跳转至 classify.html</a>
+            <a href="/classify.html"> a 标签跳转至 classify.html</a>
         </br>
             <!-- <a href="cart.html">a 标签跳转至 cart.html</a> -->
         </div>
@@ -23,7 +23,7 @@
 
     <script>
         document.getElementById('btn').addEventListener('click', function(){
-            history.pushState({ tag: "cart" }, "", "#cart.html")
+            history.pushState({ tag: "cart" }, "", "cart.html")
             // window.location = '#classify.html'
         }, false); 
         // document.getElementById('btn1').addEventListener('click', function(){

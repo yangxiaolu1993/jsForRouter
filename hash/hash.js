@@ -1,4 +1,7 @@
 
+/**
+ * hash 模式路由
+ */
 class HashRouter {
     constructor(routerview){
         this.routerView = routerview
